@@ -1,6 +1,6 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Check Pull Request'
+description: 'Check Pull Request, signed-off-by'
+author: 'cloudforet-io'
 
 # Define your inputs here.
 inputs:
