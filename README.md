@@ -24,7 +24,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Review Pull Request
+      - name: Notify Result
         if: ${{ steps.review.outputs.signedoff == 'false' }}
         run: |
           echo "The review result is ${{ steps.review.outputs.signedoff }}"
