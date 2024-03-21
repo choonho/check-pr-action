@@ -72,6 +72,8 @@ async function run() {
         )
       await octokit.rest.issues.addLabels({
         ...context.repo,
+        owner: context.repo.owner,
+        repo: context.repo.repo,
         issue_number: context.issue.number,
         labels: ['needs-signoff']
       })
