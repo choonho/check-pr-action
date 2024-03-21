@@ -29054,6 +29054,7 @@ async function run() {
         issue_number: context.issue.number,
         labels: ['fail/signedoff']
       })
+      return false
     } else {
       core.info('All commits have a valid signed-off-by')
       await octokit.rest.issues.addLabels({
@@ -29061,6 +29062,7 @@ async function run() {
         issue_number: context.issue.number,
         labels: ['pass/signedoff']
       })
+      return true
     }
   } catch (error) {
     // Fail the workflow run if an error occurs
