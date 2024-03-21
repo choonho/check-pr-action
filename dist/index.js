@@ -29052,7 +29052,14 @@ async function run() {
       await octokit.rest.issues.addLabels({
         ...context.repo,
         issue_number: context.issue.number,
-        labels: ['no-signedoff']
+        labels: ['fail/signedoff']
+      })
+    } else {
+      core.info('All commits have a valid signed-off-by')
+      await octokit.rest.issues.addLabels({
+        ...context.repo,
+        issue_number: context.issue.number,
+        labels: ['pass/signedoff']
       })
     }
   } catch (error) {
