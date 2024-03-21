@@ -7,18 +7,23 @@ const { wait } = require('./wait')
  */
 async function run() {
   try {
-    const ms = core.getInput('milliseconds', { required: true })
+	const myToken = core.getInput('token');
+	const octokit = github.getOctokit(myToken);
+	const context = github.context;
+	const isPullRequest = context.payload.pull_request;
+	if (!isPullRequest)
+		throw new Error(
+			'This actions only runs against pull request events. Try modifying your workflow trigger.'
+		);
 
-    // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
-    core.debug(`Waiting ${ms} milliseconds ...`)
-
-    // Log the current timestamp, wait, then log the new timestamp
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
-
-    // Set outputs for other workflow steps to use
-    core.setOutput('time', new Date().toTimeString())
+	const pr = await octokit.rest.pulls.get({
+		...context.repo,
+		pull_number: context.issue.number
+	});
+	const commits = await octokit.rest.pulls.listCommits({
+		...context.repo,
+		pull_number: context.issue.number
+	});
   } catch (error) {
     // Fail the workflow run if an error occurs
     core.setFailed(error.message)

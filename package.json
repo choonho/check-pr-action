@@ -1,8 +1,8 @@
 {
-  "name": "javascript-action",
-  "description": "GitHub Actions JavaScript Template",
-  "version": "0.0.0",
-  "author": "",
+  "name": "review-pr-action",
+  "description": "Review Pull Request",
+  "version": "0.0.1",
+  "author": "Choonho Son",
   "private": true,
   "homepage": "https://github.com/actions/javascript-action#readme",
   "repository": {
