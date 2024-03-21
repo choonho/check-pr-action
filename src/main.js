@@ -32,7 +32,9 @@ async function run() {
     const commitLines = commits.data
       .filter(item => !/Signed-off-by: (.*) <(.*)>/i.test(item.commit.message))
       .map(item => item.sha)
-    const header = "⚠️  @" + pr.data.user.login +
+    const header =
+      '⚠️  @' +
+      pr.data.user.login +
       ' the `signed-off-by` was not found in the following **' +
       commitLines.length +
       '** commits:'
