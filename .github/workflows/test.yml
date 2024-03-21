@@ -1,11 +1,11 @@
-name: TEST
+name: PR-BOT
 
 on:
   pull_request_target:
 
 jobs:
-  check-sign-off:
-    name: Check Signed-Off
+  review-pull-request:
+    name: Review Pull Request
     env:
       FORCE_COLOR: 1
     runs-on: ubuntu-latest
