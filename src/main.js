@@ -28,7 +28,7 @@ async function run() {
     })
 
     const footer =
-      "#### 📝 What should I do to fix it?\nAll proposed commits should include a sign-off in their messages, ideally at the end.\n#### ❔ Why it is required\nThe Developer Certificate of Origin (DCO) is a lightweight way for contributors to certify that they wrote or otherwise have the right to submit the code they are contributing to the project. Here is the full [text of the DCO](https://developercertificate.org/).\n\nContributors _sign-off_ that they adhere to these requirements by adding a `Signed-off-by` line to commit messages.\n\n```\nThis is my commit message\n\nSigned-off-by: Random Developer <randomdeveloper@example.com>\n```\n\nGit even has a `-s` command line option to append this automatically to your commit message:\n\n```\n$ git commit -s -m 'This is my commit message'\n```"
+      "####✅ Why it is required\nThe Developer Certificate of Origin (DCO) is a lightweight way for contributors to certify that they wrote or otherwise have the right to submit the code they are contributing to the project. Here is the full [text of the DCO](https://developercertificate.org/).\n\nContributors _sign-off_ that they adhere to these requirements by adding a `Signed-off-by` line to commit messages.\n\n```\nThis is my commit message\n\nSigned-off-by: Random Developer <randomdeveloper@example.com>\n```\n\nGit even has a `-s` command line option to append this automatically to your commit message:\n\n```\n$ git commit -s -m 'This is my commit message'\n```"
     const commitLines = commits.data
       .filter(item => !/Signed-off-by: (.*) <(.*)>/i.test(item.commit.message))
       .map(item => item.sha)
