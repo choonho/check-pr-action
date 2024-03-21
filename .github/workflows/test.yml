@@ -1,0 +1,20 @@
+name: TEST
+
+on:
+  pull_request_target:
+
+jobs:
+  check-sign-off:
+    name: Check Signed-Off
+    env:
+      FORCE_COLOR: 1
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Check signed commits
+        uses: ./
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
