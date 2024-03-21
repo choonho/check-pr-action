@@ -29049,11 +29049,11 @@ async function run() {
           )
         )
 
-      //      await octokit.rest.issues.addLabels({
-      //        ...context.repo,
-      //        issue_number: context.issue.number,
-      //        labels: ['needs-signoff']
-      //      })
+      await octokit.rest.issues.addLabels({
+        ...context.repo,
+        issue_number: context.issue.number,
+        labels: ['no-signedoff']
+      })
     }
   } catch (error) {
     // Fail the workflow run if an error occurs
