@@ -5,7 +5,7 @@ on:
 
 jobs:
   review-pull-request:
-    name: Review Pull Request
+    name: Check Pull Request
     env:
       FORCE_COLOR: 1
     runs-on: ubuntu-latest
@@ -21,7 +21,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Review Pull Request
+      - name: Notify Result
         if: ${{ steps.review.outputs.signedoff == 'false' }}
         run: |
           echo "The review result is ${{ steps.review.outputs.signedoff }}"
