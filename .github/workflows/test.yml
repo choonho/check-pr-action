@@ -22,4 +22,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Review Pull Request
-        run: echo "The review result is ${{ steps.review.outputs.review }}"
+        if: ${{ steps.review.outputs.review }} == 'false'
+        run: |
+          echo "The review result is ${{ steps.review.outputs.review }}"
+          exit 1
