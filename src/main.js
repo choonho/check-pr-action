@@ -70,13 +70,12 @@ async function run() {
             `\u001B[1;35m ${item.sha.slice(0, 6)}\u001B[21;39m: \u001B[90m${item.commit.message.split('\n', 1)[0]}`
           )
         )
-      await octokit.rest.issues.addLabels({
-        ...context.repo,
-        owner: context.repo.owner,
-        repo: context.repo.repo,
-        issue_number: context.issue.number,
-        labels: ['needs-signoff']
-      })
+
+      //      await octokit.rest.issues.addLabels({
+      //        ...context.repo,
+      //        issue_number: context.issue.number,
+      //        labels: ['needs-signoff']
+      //      })
     }
   } catch (error) {
     // Fail the workflow run if an error occurs
