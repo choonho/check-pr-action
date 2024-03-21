@@ -29054,7 +29054,7 @@ async function run() {
         issue_number: context.issue.number,
         labels: ['fail/signedoff']
       })
-      core.setOutput('review', 'fail')
+      core.setOutput('signedoff', false)
       return false
     } else {
       core.info('All commits have a valid signed-off-by')
@@ -29063,7 +29063,7 @@ async function run() {
         issue_number: context.issue.number,
         labels: ['pass/signedoff']
       })
-      core.setOutput('review', 'pass')
+      core.setOutput('signedoff', true)
       return true
     }
   } catch (error) {
