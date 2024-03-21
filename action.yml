@@ -4,16 +4,16 @@ author: 'Your name or organization here'
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
-    required: true
-    default: '1000'
-
-# Define your outputs here.
-outputs:
-  time:
-    description: 'Your output description here'
+  token:
+    description:
+      'GitHub token for commenting on PRs, defaults to using
+      secrets.GITHUB_TOKEN'
+    required: false
+    default: ${{ github.token }}
 
 runs:
   using: node20
   main: dist/index.js
+branding:
+  icon: check-cicle
+  color: purple
